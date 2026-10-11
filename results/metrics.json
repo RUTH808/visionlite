@@ -1,0 +1,714 @@
+{
+  "dataset": "Fashion-MNIST",
+  "data_checksums_md5": {
+    "train-images-idx3-ubyte.gz": "8d4fb7e6c68d591d4c3dfef9ec88bf0d",
+    "train-labels-idx1-ubyte.gz": "25c81989df183df01b3e8a0aad5dffbe",
+    "t10k-images-idx3-ubyte.gz": "bef4ecab320f06d8554ea6380940ec79",
+    "t10k-labels-idx1-ubyte.gz": "bb300cfdad3c16e7a12a480ee83cd310"
+  },
+  "seed": 42,
+  "student_initialization_seed": 99,
+  "epochs_per_model": 5,
+  "splits": {
+    "train": 55000,
+    "validation": 5000,
+    "test": 10000
+  },
+  "teacher_parameters": 421642,
+  "student_parameters": 52138,
+  "distillation": {
+    "temperature": 3,
+    "supervised_weight": 0.5
+  },
+  "training_seconds": {
+    "teacher": 111.66643291299988,
+    "student_supervised": 24.784337834003964,
+    "student_distilled": 84.38812838200101
+  },
+  "validation_histories": {
+    "teacher": [
+      {
+        "epoch": 1,
+        "training_loss": 0.6198038382530212,
+        "validation_accuracy": 0.8724
+      },
+      {
+        "epoch": 2,
+        "training_loss": 0.36506646384759384,
+        "validation_accuracy": 0.89
+      },
+      {
+        "epoch": 3,
+        "training_loss": 0.3174604586752978,
+        "validation_accuracy": 0.8954
+      },
+      {
+        "epoch": 4,
+        "training_loss": 0.2843151658144864,
+        "validation_accuracy": 0.9092
+      },
+      {
+        "epoch": 5,
+        "training_loss": 0.25974734069217337,
+        "validation_accuracy": 0.9138
+      }
+    ],
+    "student_supervised": [
+      {
+        "epoch": 1,
+        "training_loss": 0.8881576123324307,
+        "validation_accuracy": 0.807
+      },
+      {
+        "epoch": 2,
+        "training_loss": 0.508344552933086,
+        "validation_accuracy": 0.839
+      },
+      {
+        "epoch": 3,
+        "training_loss": 0.44536984527761286,
+        "validation_accuracy": 0.8632
+      },
+      {
+        "epoch": 4,
+        "training_loss": 0.407870340681076,
+        "validation_accuracy": 0.8764
+      },
+      {
+        "epoch": 5,
+        "training_loss": 0.3822841712041335,
+        "validation_accuracy": 0.8812
+      }
+    ],
+    "student_distilled": [
+      {
+        "epoch": 1,
+        "training_loss": 1.937664444177801,
+        "validation_accuracy": 0.7948
+      },
+      {
+        "epoch": 2,
+        "training_loss": 0.6579857995813543,
+        "validation_accuracy": 0.8308
+      },
+      {
+        "epoch": 3,
+        "training_loss": 0.4820210692665794,
+        "validation_accuracy": 0.8604
+      },
+      {
+        "epoch": 4,
+        "training_loss": 0.3861779017014937,
+        "validation_accuracy": 0.8746
+      },
+      {
+        "epoch": 5,
+        "training_loss": 0.3319645477641713,
+        "validation_accuracy": 0.8802
+      }
+    ]
+  },
+  "test_results": [
+    {
+      "model": "teacher",
+      "test_accuracy": 0.8983,
+      "macro_f1": 0.8969991949103348,
+      "accuracy_ci_low": 0.892222044493485,
+      "accuracy_ci_high": 0.9040720511667262,
+      "noise_accuracy": 0.8612,
+      "checkpoint_bytes": 1689869,
+      "p50_ms": 0.3429764983593486,
+      "p95_ms": 0.5016518021875521,
+      "batch256_images_per_second": 3724.776204914795
+    },
+    {
+      "model": "student_supervised",
+      "test_accuracy": 0.8636,
+      "macro_f1": 0.8614511841792784,
+      "accuracy_ci_low": 0.8567332443397341,
+      "accuracy_ci_high": 0.8701875017864341,
+      "noise_accuracy": 0.8424,
+      "checkpoint_bytes": 212391,
+      "p50_ms": 0.133435500174528,
+      "p95_ms": 0.17680699966149405,
+      "batch256_images_per_second": 17401.47768196591
+    },
+    {
+      "model": "student_distilled",
+      "test_accuracy": 0.8657,
+      "macro_f1": 0.8625176337927931,
+      "accuracy_ci_low": 0.8588762770218474,
+      "accuracy_ci_high": 0.872242856251914,
+      "noise_accuracy": 0.8485,
+      "checkpoint_bytes": 212377,
+      "p50_ms": 0.14150800052448176,
+      "p95_ms": 0.34633574796316663,
+      "batch256_images_per_second": 17248.942872639425
+    },
+    {
+      "model": "student_int8_linear",
+      "test_accuracy": 0.865,
+      "macro_f1": 0.8618467191993737,
+      "accuracy_ci_low": 0.858161872830499,
+      "accuracy_ci_high": 0.8715577980607313,
+      "noise_accuracy": 0.8486,
+      "checkpoint_bytes": 61399,
+      "p50_ms": 0.19132350280415267,
+      "p95_ms": 0.24565969579271038,
+      "batch256_images_per_second": 17235.254427292224
+    }
+  ],
+  "details": {
+    "teacher": {
+      "confusion_matrix": [
+        [
+          872,
+          0,
+          15,
+          24,
+          6,
+          1,
+          75,
+          0,
+          7,
+          0
+        ],
+        [
+          2,
+          974,
+          0,
+          18,
+          3,
+          0,
+          1,
+          0,
+          2,
+          0
+        ],
+        [
+          18,
+          1,
+          810,
+          8,
+          107,
+          0,
+          52,
+          0,
+          4,
+          0
+        ],
+        [
+          21,
+          3,
+          11,
+          912,
+          30,
+          0,
+          18,
+          0,
+          5,
+          0
+        ],
+        [
+          1,
+          2,
+          40,
+          22,
+          895,
+          1,
+          38,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          987,
+          0,
+          9,
+          0,
+          3
+        ],
+        [
+          153,
+          1,
+          57,
+          37,
+          100,
+          0,
+          640,
+          0,
+          12,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          24,
+          0,
+          946,
+          0,
+          30
+        ],
+        [
+          1,
+          1,
+          0,
+          4,
+          2,
+          4,
+          2,
+          4,
+          982,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          6,
+          0,
+          28,
+          0,
+          965
+        ]
+      ],
+      "per_class_accuracy": {
+        "T-shirt/top": 0.872,
+        "Trouser": 0.974,
+        "Pullover": 0.81,
+        "Dress": 0.912,
+        "Coat": 0.895,
+        "Sandal": 0.987,
+        "Shirt": 0.64,
+        "Sneaker": 0.946,
+        "Bag": 0.982,
+        "Ankle boot": 0.965
+      }
+    },
+    "student_supervised": {
+      "confusion_matrix": [
+        [
+          858,
+          0,
+          12,
+          29,
+          9,
+          4,
+          70,
+          0,
+          18,
+          0
+        ],
+        [
+          3,
+          966,
+          0,
+          21,
+          3,
+          0,
+          5,
+          0,
+          2,
+          0
+        ],
+        [
+          18,
+          0,
+          745,
+          11,
+          127,
+          1,
+          89,
+          0,
+          9,
+          0
+        ],
+        [
+          37,
+          13,
+          5,
+          865,
+          33,
+          0,
+          37,
+          0,
+          10,
+          0
+        ],
+        [
+          1,
+          4,
+          48,
+          32,
+          840,
+          1,
+          67,
+          0,
+          7,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          941,
+          0,
+          36,
+          2,
+          20
+        ],
+        [
+          185,
+          0,
+          84,
+          26,
+          136,
+          1,
+          542,
+          0,
+          26,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          16,
+          0,
+          941,
+          1,
+          42
+        ],
+        [
+          3,
+          2,
+          2,
+          2,
+          4,
+          1,
+          4,
+          4,
+          977,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          4,
+          0,
+          34,
+          0,
+          961
+        ]
+      ],
+      "per_class_accuracy": {
+        "T-shirt/top": 0.858,
+        "Trouser": 0.966,
+        "Pullover": 0.745,
+        "Dress": 0.865,
+        "Coat": 0.84,
+        "Sandal": 0.941,
+        "Shirt": 0.542,
+        "Sneaker": 0.941,
+        "Bag": 0.977,
+        "Ankle boot": 0.961
+      }
+    },
+    "student_distilled": {
+      "confusion_matrix": [
+        [
+          863,
+          1,
+          15,
+          38,
+          5,
+          5,
+          63,
+          0,
+          10,
+          0
+        ],
+        [
+          2,
+          969,
+          0,
+          22,
+          3,
+          0,
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          24,
+          1,
+          790,
+          13,
+          111,
+          1,
+          54,
+          0,
+          6,
+          0
+        ],
+        [
+          28,
+          11,
+          14,
+          890,
+          27,
+          0,
+          25,
+          0,
+          5,
+          0
+        ],
+        [
+          1,
+          2,
+          75,
+          36,
+          826,
+          0,
+          55,
+          0,
+          5,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          967,
+          0,
+          24,
+          0,
+          8
+        ],
+        [
+          208,
+          0,
+          106,
+          37,
+          124,
+          1,
+          509,
+          0,
+          15,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          38,
+          0,
+          925,
+          1,
+          36
+        ],
+        [
+          5,
+          2,
+          3,
+          6,
+          3,
+          6,
+          5,
+          3,
+          966,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          14,
+          0,
+          33,
+          0,
+          952
+        ]
+      ],
+      "per_class_accuracy": {
+        "T-shirt/top": 0.863,
+        "Trouser": 0.969,
+        "Pullover": 0.79,
+        "Dress": 0.89,
+        "Coat": 0.826,
+        "Sandal": 0.967,
+        "Shirt": 0.509,
+        "Sneaker": 0.925,
+        "Bag": 0.966,
+        "Ankle boot": 0.952
+      }
+    },
+    "student_int8_linear": {
+      "confusion_matrix": [
+        [
+          863,
+          0,
+          16,
+          38,
+          6,
+          4,
+          63,
+          0,
+          10,
+          0
+        ],
+        [
+          2,
+          968,
+          0,
+          23,
+          3,
+          0,
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          24,
+          1,
+          787,
+          14,
+          114,
+          1,
+          53,
+          0,
+          6,
+          0
+        ],
+        [
+          29,
+          11,
+          13,
+          887,
+          30,
+          0,
+          25,
+          0,
+          5,
+          0
+        ],
+        [
+          1,
+          2,
+          73,
+          36,
+          828,
+          0,
+          55,
+          0,
+          5,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          966,
+          0,
+          25,
+          0,
+          8
+        ],
+        [
+          209,
+          0,
+          108,
+          35,
+          125,
+          1,
+          507,
+          0,
+          15,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          34,
+          0,
+          930,
+          1,
+          35
+        ],
+        [
+          5,
+          2,
+          4,
+          7,
+          3,
+          6,
+          5,
+          3,
+          964,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          14,
+          0,
+          35,
+          0,
+          950
+        ]
+      ],
+      "per_class_accuracy": {
+        "T-shirt/top": 0.863,
+        "Trouser": 0.968,
+        "Pullover": 0.787,
+        "Dress": 0.887,
+        "Coat": 0.828,
+        "Sandal": 0.966,
+        "Shirt": 0.507,
+        "Sneaker": 0.93,
+        "Bag": 0.964,
+        "Ankle boot": 0.95
+      }
+    }
+  },
+  "latency_protocol": "CPU 1 thread; batch 1; 20 warmups; 200 repetitions including softmax; P50/P95; throughput batch=256 over 20 repetitions; excludes loading and network",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "cpu": "AMD EPYC 9V74 80-Core Processor"
+  },
+  "limitations": "One training seed; test accuracy intervals are Wilson binomial 95% intervals, not seed variability. Fashion-MNIST is 28x28 grayscale; performance does not establish real catalog-image performance. Quantization affects Linear layers only; convolutions remain FP32."
+}
